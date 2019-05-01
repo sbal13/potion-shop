@@ -41,6 +41,8 @@ class App extends React.Component {
 
         this.setState({inventory: newInventory})
       }
+    } else {
+      alert('Ye do not possess enough coin for yonder potion!')
     }
     
   }
