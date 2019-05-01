@@ -1,33 +1,103 @@
-.App {
+body {
+  font-family: 'Press Start 2P';
+}
+.potion-shop {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.shop {
+  color: white;
+  background-color: #5c2500;
+  background-image: url("https://www.transparenttextures.com/patterns/wood-pattern.png");
+  border-width: 10px;  
+  border-style: ridge;
+  border-color: #ac801b; 
+}
+
+.shop-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.inventory {
+  font-size: 10px;
+  color: white;
+  background-color: #3d1500;
+  background-image: url("https://www.transparenttextures.com/patterns/leather.png");
+  border-width: 10px;  
+  border-style: ridge;
+  border-color: #ac801b;
+}
+
+.inventory-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.purse {
+  height: 10vh;
+}
+
+.coin {
+  margin: 1vh;
+  height: 50%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.image {
+  width: 30%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.image-wrapper {
+  background-color: rgba(62,37,50,100);
+  overflow: hidden;
+  height: 60%;
+  border-color: gold;
+  border-width: 7px;  
+  border-style: ridge;
+  position: relative;
+}
+
+.card {
+  height: 20vh;
+  margin: 3vw;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.potion-header {
+  height:20%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.inventory-card {
+  text-align: center;
+  width: 15%;
+  margin: 3vw;
+}
+
+.torch {
+
+}
+
+.shop-header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.flipped {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
 }
