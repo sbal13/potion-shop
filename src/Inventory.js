@@ -1,5 +1,6 @@
 import React from 'react'
 import Purse from "./Purse"
+import InventoryTile from "./InventoryTile"
 
 
 const Inventory = (props) => {
@@ -10,12 +11,9 @@ const Inventory = (props) => {
       const potion = props.potions.find(potion => potion.id === item.id)
 
        return (
-        <div key={potion.id} onClick={() => props.sell(potion.id)}className="inventory-card">
-          <div className="image-wrapper">
-            <img className="image" alt={potion.name} src={potion.image_url} />
-          </div>
+        <InventoryTile potion={potion} sell={props.sell}>
           <h4>{potion.name} x {item.amount}</h4>
-        </div>
+        </InventoryTile>
       )
     })  
   }

@@ -1,16 +1,14 @@
 import React from 'react'
+import ShopTile from "./ShopTile"
 
 const Shop = (props) => {
 
   const renderPotions = () => {
     return props.potions.map(potion => {
-      return (
-        <div onClick={() => props.addToInventory(potion.id)} key={potion.id} className="card">
+      return ( 
+        <ShopTile potion={potion} addToInventory={props.addToInventory}>
           <h4 className="potion-header">{potion.name}</h4>
-          <div className="image-wrapper">
-            <img className="image" alt={potion.name} src={potion.image_url} />
-          </div>
-        </div>
+        </ShopTile>
       )
     })
   }
