@@ -8,7 +8,14 @@ class App extends React.Component {
 
   state = {
     gold: 500,
-    inventory: []
+    inventory: [],
+    shake: false
+  }
+
+  stopShake = () => {
+    this.setState({
+      shake: false
+    })
   }
 
   addToInventory = (potionID) => {
@@ -41,8 +48,15 @@ class App extends React.Component {
 
         this.setState({inventory: newInventory})
       }
+      const audio = new Audio("./pickup.wav")
+      audio.play()
     } else {
-      alert('Ye do not possess enough coin for yonder potion!')
+      this.setState({
+        shake: true 
+      }, () => {
+        const audio = new Audio("./wrong.wav")
+        audio.play()  
+      })
     }
     
   }
@@ -78,6 +92,9 @@ class App extends React.Component {
         inventory: newInventory
       })
     }
+
+    const audio = new Audio("./coins.wav")
+    audio.play()
   }
 
   render(){
@@ -85,7 +102,7 @@ class App extends React.Component {
       <div className="app">
         <div className="potion-shop">
           <Shop potions={potions}  addToInventory={this.addToInventory}/>
-          <Inventory gold={this.state.gold} sell={this.sell} potions={potions} inventory={this.state.inventory}/>
+          <Inventory stopShake={this.stopShake} shake={this.state.shake} gold={this.state.gold} sell={this.sell} potions={potions} inventory={this.state.inventory}/>
         </div>
       </div>
     );

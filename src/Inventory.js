@@ -21,7 +21,7 @@ const Inventory = (props) => {
   return (
     <div className="inventory">
       <h2>Inventory</h2>
-      <Purse gold={props.gold}/>
+      <Purse stopShake={props.stopShake} shake={props.shake} gold={props.gold}/>
       <div className="inventory-cards">
        {renderInventory()}
       </div>
